@@ -21,6 +21,11 @@ int main()
 
 	pruebabbva::tipos_modificadores((int*)5);
 
+	pruebabbva::sobrecarga();
+
+	pruebabbva::polimorfismo();
+
 	return 0;
+
 }//main
 

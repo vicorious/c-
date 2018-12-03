@@ -11,18 +11,21 @@
 
 /**
  *
+ * Namespace que contiene pruebas unitarias de sintaxis c++
+ *
  */
 namespace pruebabbva
 {
 	#include "Persona.h"
 	#include "Libros.h"
+	#include "Figura.h"
 
 	#define pi "3.1416"
 	#define alejo "alejos";
 
 	/**
 	 *
-	 *
+	 * Por valor (Objetos)
 	 *
 	 */
 	void por_valor()
@@ -40,7 +43,7 @@ namespace pruebabbva
 
 	/**
 	 *
-	 *
+	 * Paso por referencia (Apuntadores)
 	 *
 	 */
 	void por_referencia()
@@ -61,7 +64,7 @@ namespace pruebabbva
 
 	/**
 	 *
-	 *
+	 * Manejo de memoria
 	 *
 	 */
 	void memoria()
@@ -160,17 +163,89 @@ namespace pruebabbva
 
 	/**
 	 *
-	 *
+	 * Estructuras complejas
 	 *
 	 */
 	void estructuras()
 	{
+		std::cout << "------Estructuras------" << "\n";
+
 		struct Books book1;
 
 		const std::string titulo = "Duma key";
 		const std::string autor = "Stephen King";
 
 	}//estructuras
+
+	/**
+	 *
+	 * Sobrecarga de metodos
+	 *
+	 *
+	 * SI SE PUEDEN SOBRECARGAR
+	 *  +	-	*	/	%	^
+	 *  &	|	~	!	,	=
+	 *  <	>	<=	>=	++	--
+	 * <<	>>	==	!=	&&	||
+	 * +=	-=	/=	%=	^=	&=
+	 * |=	*=	<<=	>>=	[]	()
+	 * ->	->*	new	new []	delete	delete []
+	 *
+	 * NO SE PUEDEN SOBRECARGAR
+	 *
+	 * ::	.*	.	?:
+	 *
+	 */
+	void sobrecarga()
+	{
+		std::cout << "------Sobrecarga------" << "\n";
+
+		Persona persona1;
+		persona1.edad = 15;
+		persona1.nombre = "Alejo";
+
+		Persona persona2;
+		persona2.edad = 12;
+		persona2.nombre = "Nathalia";
+
+		/**
+		 * Aqui se hace el llamado implicito a "operator+"
+		 */
+		Persona persona3 = persona1 + persona2;
+
+		std::cout << persona3.edad << "\n";
+		std::cout << persona3.nombre << "\n";
+
+	}//sobrecarga
+
+	/**
+	 *
+	 */
+	void polimorfismo()
+	{
+		Figura* figura;
+		Rectangulo rectangulo(10, 7);
+		Triangulo triangulo(10, 5);
+
+		//Guardamos la direccion del rectangulo
+		figura = &rectangulo;
+
+		std::cout << figura->area() << std::endl;
+
+		// Guardamos la direccion del triangulo
+		figura = &triangulo;
+
+		std::cout << figura->area() << std::endl;
+
+	}//polimorfismo
+
+	/**
+	 * con virtual, le pedimos al compilador que no haga un enlace a esta funcion
+	 * ya que PUEDE tener mas de una sobrecarga
+	 * El ejemplo mas claro son los constructores
+	 *
+	 */
+	virtual void virtual_function(){}//virtual_function
 
 }//namespace pruebabbva
 

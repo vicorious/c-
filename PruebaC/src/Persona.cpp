@@ -15,9 +15,9 @@
 class Persona
 {
 	private:
-		std::string nombre;
 	public:
 		int edad = 0;
+		std::string nombre;
 
 		//Constructores
 
@@ -40,6 +40,20 @@ class Persona
 		{
 			return edad;
 		}
+
+		/**
+		 *
+		 * Sobrecarga para la suma de dos personas
+		 *
+		 */
+		Persona operator+(const Persona& b)
+		{
+			Persona persona;
+			persona.nombre = this->nombre + b.nombre;
+			persona.edad = this->edad + b.edad;
+			return persona;
+
+		}//operator+
 
 };//NoBorrar
 
