@@ -1,4 +1,4 @@
-# c-
+# c++ Examples
 
  - esta hecho en eclipse, por lo único que necesitan es tener instalado un compilador C++ en su maquina local. Recomiendo "https://www.ics.uci.edu/~pattis/common/handouts/mingweclipse/mingw.html"
 
