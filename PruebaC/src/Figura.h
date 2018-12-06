@@ -15,7 +15,7 @@
 class Figura
 {
 	protected:
-      int width, height;
+      int width = 0, height = 0;
 	public:
 		Figura();//constructor
 		Figura(int a = 0, int b = 0)
@@ -41,7 +41,8 @@ class Figura
  */
 class Rectangulo: public Figura
 {
-	Rectangulo(int a = 0, int b = 0):Figura(a, b){}//constructor heredado
+	public:
+		Rectangulo(int a = 0, int b = 0):Figura(a, b){}//constructor heredado
 
 	int area()
 	{
@@ -53,9 +54,13 @@ class Rectangulo: public Figura
 
 };//NoBorrar
 
+/**
+ *
+ */
 class Triangulo: public Figura
 {
-	Triangulo(int a = 0, int b = 0):Figura(a, b){}//constructor heredado
+	public:
+		Triangulo(int a = 0, int b = 0):Figura(a, b){}//constructor heredado
 
 	int area()
 	{

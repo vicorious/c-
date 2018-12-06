@@ -19,10 +19,10 @@ namespace pruebabbva
 	#include "Persona.h"
 	#include "Libros.h"
 	#include "Figura.h"
-
-	#define pi "3.1416"
-	#define alejo "alejos";
-
+	#include "Template.h"
+	#include "Preprocesadores.h"
+	#include "MultiTasking.h"
+#include <thread>
 	/**
 	 *
 	 * Por valor (Objetos)
@@ -66,6 +66,9 @@ namespace pruebabbva
 	 *
 	 * Manejo de memoria
 	 *
+	 * Todas las variables que son declaradas dentro de una funcion, tomaran parte de la pila "stack"
+	 *
+	 * Existe memoria inutilizada que puede ser usada para alojar memoria dinamica cuando el programa corra
 	 */
 	void memoria()
 	{
@@ -128,7 +131,7 @@ namespace pruebabbva
 	 * esto para obtener resultados precisos para diferentes contextos
 	 *
 	 * Con el parametro de nombre "parametro_restringido" le informamos al compilador que dos hilos
-	 * no pueden acceder a direcciones de memoria sobrepuestas
+	 * no pueden acceder a direcciones de memoria sobrepuestas del parametro
 	 *
 	 */
 	void  tipos_modificadores(int *__restrict__ parametro_restringido)
@@ -245,7 +248,74 @@ namespace pruebabbva
 	 * El ejemplo mas claro son los constructores
 	 *
 	 */
-	virtual void virtual_function(){}//virtual_function
+	//virtual void virtual_function(){}//virtual_function
+
+	/**
+	 *
+	 */
+	double manejo_errores(int a, int b)
+	{
+		//lanzando excepciones
+		if(b == 0)
+		{
+			throw "No se puede dividir entre cero";
+		}
+
+		return (a/b);
+
+	}//manejo_errores
+
+	/**
+	 *
+	 */
+	void generic_template()
+	{
+		int i = 39;
+		int j = 20;
+		std::cout << "Maximo(i, j): " << Maximo(i, j) << std::endl;
+
+		double f1 = 13.5;
+		double f2 = 20.7;
+		std::cout << "Maximo(f1, f2): " << Maximo(f1, f2) << std::endl;
+
+		std::string s1 = "Hello";
+		std::string s2 = "World";
+		std::cout << "Maximo(s1, s2): " << Maximo(s1, s2) << std::endl;
+
+	}//generic_template
+
+	/**
+	 *
+	 * Son directivas que le indican instruciones personalizadas al compilador antes de compilar
+	 *
+	 */
+	void pre_procesadores()
+	{
+		std::cout << "Valor de PI es :" << PI << std::endl;
+
+		int i, j;
+		i = 100;
+		j = 30;
+
+		std::cout << "El minimo es: " << MIN(i,j) << std::endl;
+
+		#ifdef DEBUG
+			std::cerr << "Debug activado para la función" << std::endl;
+		#endif
+
+	}//pre_procesadores
+
+	/**
+	 * La multi tarea basada en procesos lanza concurrentes ejecuciones de programas.
+	 * La multi tarea basada en hilos se ocupada de la ejecucion concurrente de piezas del mismo software
+	 *
+	 */
+	void multitasking()
+	{
+
+
+	}//multitasking
+
 
 }//namespace pruebabbva
 
