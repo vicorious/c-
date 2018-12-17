@@ -1,8 +1,8 @@
 /*
  * Libros.h
  *
- *  Created on: 3/12/2018
- *      Author: User
+ *	 Created on: 3/12/2018
+ *	 Author: Alejandro Lindarte Castro
  */
 
 #ifndef LIBROS_H_

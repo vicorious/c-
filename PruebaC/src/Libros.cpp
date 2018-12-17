@@ -8,9 +8,9 @@
 #include "Libros.h"
 
 
-Libros::Libros() {}//constructor
+Libros::Libros() {}//constructor // @suppress("Member declaration not found")
 
-Libros::~Libros() {}//destructor
+Libros::~Libros() {}//destructor // @suppress("Member declaration not found")
 
 
 

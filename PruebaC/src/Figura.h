@@ -22,10 +22,12 @@ class Figura
 		{
 			width = a;
 			height = b;
-
 		}//constructor
 
-		virtual ~Figura();//destructor
+		virtual ~Figura()
+		{
+			this->~Figura();
+		}//destructor
 
 		int area()
 		{

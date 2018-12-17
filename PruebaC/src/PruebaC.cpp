@@ -6,13 +6,9 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
-#include <iostream>
-#include <fstream>
 #include "PruebaC.h"
 #include "MyExcepcion.h"
-#include <csignal>
-#include <signal.h>
-#include <thread>
+#include <iostream>
 
 /**
  * Main APP
@@ -33,17 +29,17 @@ int main()
 	pruebabbva::polimorfismo();
 
 	//Errores
-	try
+	/*try
 	{
 		pruebabbva::manejo_errores(2, 0);
 
 	}catch(const char* msg)
 	{
 		std::cerr << msg << std::endl;
-	}
+	}*/
 
 	//Excepciones propias
-	try
+	/*try
 	{
 		throw MyException();
 
@@ -55,7 +51,7 @@ int main()
 	} catch(std::exception& e)
 	{
 		//Other errors
-	}
+	}*/
 
 	//template
 	pruebabbva::generic_template();
@@ -63,7 +59,14 @@ int main()
 	//preprocesadores
 	pruebabbva::pre_procesadores();
 
+	//STL
+	pruebabbva::STL_vector();
+
+	//Uso de fechas
+	pruebabbva::date_use();
+
 	return 0;
+
 
 }//main
 

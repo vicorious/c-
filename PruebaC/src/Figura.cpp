@@ -7,7 +7,5 @@
 
 #include "Figura.h"
 
-Figura::Figura() {}//constructor
 
-Figura::~Figura() {}//destructor
 

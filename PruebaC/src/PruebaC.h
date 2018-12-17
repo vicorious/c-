@@ -22,7 +22,8 @@ namespace pruebabbva
 	#include "Template.h"
 	#include "Preprocesadores.h"
 	#include "MultiTasking.h"
-#include <thread>
+	#include <vector>
+	#include <ctime>
 	/**
 	 *
 	 * Por valor (Objetos)
@@ -90,6 +91,7 @@ namespace pruebabbva
 	 *
 	 *
 	 */
+
 	void storage()
 	{
 		std::cout << "------Storage------" << "\n";
@@ -125,6 +127,7 @@ namespace pruebabbva
 
 
 	}//storage
+
 
 	/**
 	 * Los modificadores son usados para alterar el comportamiento de un tipo de datos base
@@ -306,15 +309,72 @@ namespace pruebabbva
 	}//pre_procesadores
 
 	/**
-	 * La multi tarea basada en procesos lanza concurrentes ejecuciones de programas.
-	 * La multi tarea basada en hilos se ocupada de la ejecucion concurrente de piezas del mismo software
+	 * Standard Library
+	 */
+	void STL_vector()
+	{
+		//Vector
+		std::vector<int> vec;
+		int i;
+
+		// display the original size of vec
+		std::cout << "vector size = " << vec.size() << std::endl;
+
+		for(i = 0; i < 5; i++)
+		{
+			vec.push_back(i);
+		}
+
+		// display extended size of vec
+		std::cout << "extended vector size = " << vec.size() << std::endl;
+
+		// access 5 values from the vector
+		for(i = 0; i < 5; i++)
+		{
+			std::cout << "value of vec [" << i << "] = " << vec[i] << std::endl;
+		}
+
+		// use iterator to access the values
+		std::vector<int>::iterator v = vec.begin();
+
+		while( v != vec.end())
+		{
+			std::cout << "value of v = " << *v << std::endl;
+			v++;
+		}
+
+	}//STL_vector
+
+	/**
 	 *
 	 */
-	void multitasking()
+	void date_use()
+	{
+		// current date/time based on current system
+		time_t now = time(0);
+
+		// convert now to string form
+		char* dt = ctime(&now);
+
+		std::cout << "The local date and time is: " << dt << std::endl;
+
+		// convert now to tm struct for UTC
+		tm *gmtm = gmtime(&now);
+		dt = asctime(gmtm);
+		std::cout << "The UTC date and time is:"<< dt << std::endl;
+
+	}//date_use
+
+	/**
+	 * La multi tarea basada en procesos lanza concurrentes ejecuciones de programas.
+	 * La multi tarea basada en hilos se ocupa de la ejecucion concurrente de piezas del mismo software
+	 *
+	 */
+	/*void multitasking()
 	{
 
 
-	}//multitasking
+	}//multitasking*/
 
 
 }//namespace pruebabbva
